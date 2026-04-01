@@ -1,0 +1,50 @@
+# =========================
+# BACKEND (Python / FastAPI)
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# CRITICAL: Do not upload patient medical files to GitHub!
+uploads/
+backend/uploads/
+
+# =========================
+# FRONTEND (Node.js / Next.js)
+# =========================
+node_modules/
+.next/
+out/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp.*
+
+# =========================
+# SECRETS & ENVIRONMENT
+# =========================
+# Never push your JWT secrets or database passwords!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# =========================
+# OS & EDITOR FILES
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
