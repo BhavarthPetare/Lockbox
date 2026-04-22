@@ -117,6 +117,19 @@ def get_authorized_users(
 
     return users
 
+@router.get("/all")
+def list_all_files_globally(request: Request, db: Session = Depends(get_db)):
+    current_user = get_current_user(request, db)
+
+    # Only Doctors and Admins can see the global file list
+    if current_user.role not in ["doctor", "admin"]:
+        raise HTTPException(status_code=403, detail="Not authorized")
+
+    # Fetch every file in the database
+    files = db.query(FileModel).all()
+
+    return [{"id": str(f.id), "file_name": f.file_name} for f in files]
+
 
 # ---------------- 2. Upload File ---------------- #
 @router.post("/upload")
